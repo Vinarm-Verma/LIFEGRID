@@ -1,0 +1,545 @@
+/* =========================================================
+   LIFEGRID — READABILITY / PRESENTATION UI
+   Keeps the existing futuristic design while increasing
+   font size, spacing and visual clarity.
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL TEXT
+========================================================= */
+
+body {
+  font-size: 16px;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.brand-name {
+  font-size: 22px !important;
+  letter-spacing: 0.08em !important;
+}
+
+.brand-subtitle {
+  font-size: 10px !important;
+  letter-spacing: 0.13em !important;
+}
+
+.system-status {
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-badge {
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  padding: 11px 17px !important;
+}
+
+.hero h1 {
+  font-size: clamp(46px, 5vw, 76px) !important;
+  line-height: 1.05 !important;
+}
+
+.hero-description {
+  max-width: 720px !important;
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+}
+
+.sos-button {
+  min-height: 92px !important;
+  min-width: 390px !important;
+  padding: 18px 25px !important;
+}
+
+.sos-button strong {
+  font-size: 17px !important;
+  letter-spacing: 0.04em !important;
+}
+
+.sos-button span {
+  margin-top: 5px !important;
+  font-size: 12px !important;
+}
+
+.sos-icon {
+  width: 52px !important;
+  height: 52px !important;
+}
+
+
+/* =========================================================
+   AI INTELLIGENCE
+========================================================= */
+
+.live-label {
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.intelligence-copy strong {
+  font-size: 25px !important;
+}
+
+.intelligence-copy p {
+  font-size: 12px !important;
+}
+
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+.metric-card {
+  min-height: 115px !important;
+  padding: 20px !important;
+}
+
+.metric-title {
+  font-size: 10px !important;
+  letter-spacing: 0.13em !important;
+}
+
+.metric-value {
+  margin-top: 5px !important;
+  font-size: 31px !important;
+  line-height: 1.1 !important;
+}
+
+.metric-label {
+  margin-top: 6px !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.metric-icon {
+  width: 47px !important;
+  height: 47px !important;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.section-heading > div > span {
+  font-size: 10px !important;
+  letter-spacing: 0.15em !important;
+}
+
+.section-heading h2 {
+  font-size: 28px !important;
+}
+
+.live-indicator {
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   INTELLIGENCE CARDS
+========================================================= */
+
+.intelligence-card {
+  min-height: 205px !important;
+  padding: 24px !important;
+}
+
+.intelligence-card h3 {
+  margin-top: 17px !important;
+  font-size: 18px !important;
+}
+
+.intelligence-card p {
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+.intelligence-icon {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+
+/* =========================================================
+   EMERGENCY MODAL
+========================================================= */
+
+.emergency-modal {
+  width: min(850px, 92vw) !important;
+  max-height: 90vh !important;
+  padding: 38px !important;
+}
+
+.modal-header {
+  gap: 18px !important;
+}
+
+.modal-alert-icon {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.modal-kicker {
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.modal-header h2 {
+  font-size: 32px !important;
+  line-height: 1.15 !important;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-box {
+  padding: 18px !important;
+  gap: 14px !important;
+}
+
+.error-box strong {
+  font-size: 15px !important;
+}
+
+.error-box p {
+  margin-top: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   SEVERITY
+========================================================= */
+
+.severity-panel {
+  min-height: 125px !important;
+  padding: 24px !important;
+}
+
+.severity-panel span {
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.severity-panel strong {
+  margin-top: 8px !important;
+  font-size: 31px !important;
+}
+
+.severity-score strong {
+  font-size: 29px !important;
+}
+
+
+/* =========================================================
+   ANALYSIS BOXES
+========================================================= */
+
+.analysis-item {
+  min-height: 85px !important;
+  padding: 20px !important;
+}
+
+.analysis-item span {
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+}
+
+.analysis-item strong {
+  margin-top: 8px !important;
+  font-size: 16px !important;
+}
+
+
+/* =========================================================
+   ANALYSIS SECTIONS
+========================================================= */
+
+.analysis-section {
+  margin-top: 25px !important;
+}
+
+.analysis-section > span {
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+}
+
+
+/* =========================================================
+   CONDITION TAGS
+========================================================= */
+
+.tag-list {
+  gap: 9px !important;
+  margin-top: 11px !important;
+}
+
+.condition-tag,
+.resource-tag,
+.empty-tag {
+  padding: 9px 13px !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+}
+
+
+/* =========================================================
+   AI SUMMARY
+========================================================= */
+
+.ai-summary {
+  margin-top: 28px !important;
+  padding: 21px !important;
+  gap: 14px !important;
+}
+
+.ai-summary > div > span {
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.ai-summary p {
+  margin-top: 8px !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+
+/* =========================================================
+   COORDINATE BUTTON
+========================================================= */
+
+.coordinate-button {
+  min-height: 66px !important;
+  padding: 17px 22px !important;
+  font-size: 15px !important;
+  letter-spacing: 0.02em !important;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.coordination-success {
+  min-height: 75px !important;
+  padding: 18px !important;
+}
+
+.coordination-success strong {
+  font-size: 15px !important;
+}
+
+.coordination-success p {
+  margin-top: 5px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   DEMO NOTICE
+========================================================= */
+
+.demo-notice {
+  margin-top: 18px !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.live-map-section {
+  margin-top: 80px !important;
+}
+
+.map-header {
+  min-height: 92px !important;
+  padding: 21px 27px !important;
+}
+
+.map-title-icon {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+.map-title span {
+  font-size: 9px !important;
+}
+
+.map-title strong {
+  font-size: 20px !important;
+}
+
+.map-live-status {
+  font-size: 11px !important;
+}
+
+.map-container {
+  height: 570px !important;
+}
+
+
+/* =========================================================
+   MAP LEGEND
+========================================================= */
+
+.map-legend {
+  padding: 14px 16px !important;
+  gap: 11px 19px !important;
+}
+
+.map-legend div {
+  font-size: 11px !important;
+}
+
+
+/* =========================================================
+   ROUTE INFORMATION
+========================================================= */
+
+.route-information {
+  padding: 22px !important;
+  gap: 14px !important;
+}
+
+.route-card {
+  min-height: 91px !important;
+  padding: 16px !important;
+}
+
+.route-card-icon {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+.route-card span {
+  font-size: 8px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.route-card strong {
+  margin-top: 5px !important;
+  font-size: 13px !important;
+}
+
+.route-card small {
+  margin-top: 5px !important;
+  font-size: 10px !important;
+}
+
+.route-connector {
+  width: 34px !important;
+  height: 34px !important;
+}
+
+
+/* =========================================================
+   MAP DISCLAIMER
+========================================================= */
+
+.map-disclaimer {
+  padding: 15px 21px !important;
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   MOBILE / SMALL SCREEN
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero h1 {
+    font-size: 48px !important;
+  }
+
+  .hero-description {
+    font-size: 16px !important;
+  }
+
+  .sos-button {
+    min-width: 100% !important;
+  }
+
+  .emergency-modal {
+    width: 94vw !important;
+    padding: 26px !important;
+  }
+
+  .modal-header h2 {
+    font-size: 27px !important;
+  }
+
+  .map-container {
+    height: 450px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero h1 {
+    font-size: 38px !important;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+  }
+
+  .metric-card {
+    min-height: 100px !important;
+  }
+
+  .metric-value {
+    font-size: 26px !important;
+  }
+
+  .emergency-modal {
+    width: 96vw !important;
+    padding: 20px !important;
+  }
+
+  .modal-header h2 {
+    font-size: 23px !important;
+  }
+
+  .severity-panel strong {
+    font-size: 25px !important;
+  }
+
+  .map-container {
+    height: 400px !important;
+  }
+
+}
