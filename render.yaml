@@ -1,4 +1,5 @@
 services:
+  # LIFEGRID FastAPI backend
   - type: web
     name: lifegrid-api
     runtime: docker
@@ -22,7 +23,8 @@ services:
       - key: LIFEGRID_SEED_DEMO
         value: "false"
 
-    type: web
+  # LIFEGRID React + Vite frontend
+  - type: web
     name: lifegrid-web
     runtime: static
     rootDir: web
