@@ -1,0 +1,1439 @@
+/* =========================================================
+   LIFEGRID PROFESSIONAL UI
+   Clean healthcare / emergency operations interface
+   ========================================================= */
+
+:root {
+  --lg-bg: #f4f7f9;
+  --lg-surface: #ffffff;
+  --lg-surface-2: #f8fafb;
+
+  --lg-border: #dfe7ec;
+  --lg-border-strong: #cbd7de;
+
+  --lg-text: #12263a;
+  --lg-text-2: #41576a;
+  --lg-muted: #708392;
+
+  --lg-teal: #087f7a;
+  --lg-teal-dark: #066b67;
+  --lg-teal-soft: #eaf7f6;
+
+  --lg-green: #16835f;
+  --lg-green-soft: #edf8f4;
+
+  --lg-red: #c62828;
+  --lg-red-soft: #fff2f1;
+
+  --lg-blue: #175cd3;
+  --lg-blue-soft: #eef4ff;
+
+  --lg-shadow-sm:
+    0 2px 8px rgba(16, 42, 60, 0.04);
+
+  --lg-shadow:
+    0 10px 30px rgba(16, 42, 60, 0.07);
+
+  --lg-shadow-lg:
+    0 20px 55px rgba(16, 42, 60, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  background: var(--lg-bg);
+  color: var(--lg-text);
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.lg-auth-page {
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 28px !important;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(8, 127, 122, 0.08),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(23, 92, 211, 0.05),
+      transparent 32%
+    ),
+    var(--lg-bg) !important;
+
+  color: var(--lg-text) !important;
+}
+
+.lg-noise,
+.lg-grid,
+.lg-glow,
+.lg-floating-node {
+  display: none !important;
+}
+
+.lg-shell {
+  width: min(1180px, 100%) !important;
+  min-height: 680px !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(440px, 0.82fr) !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid var(--lg-border) !important;
+  border-radius: 24px !important;
+
+  background: #fff !important;
+
+  box-shadow: var(--lg-shadow-lg) !important;
+}
+
+.lg-visual {
+  padding: 42px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0f8f7 0%,
+      #f8fbfc 62%,
+      #eef5f8 100%
+    ) !important;
+
+  border-right: 1px solid var(--lg-border) !important;
+  color: var(--lg-text) !important;
+}
+
+.lg-visual:after {
+  display: none !important;
+}
+
+.lg-brand-mark {
+  background: var(--lg-teal) !important;
+  box-shadow:
+    0 8px 20px
+    rgba(8, 127, 122, 0.17) !important;
+}
+
+.lg-brand strong {
+  color: var(--lg-text) !important;
+}
+
+.lg-brand span {
+  color: var(--lg-muted) !important;
+}
+
+.lg-live-pill {
+  border-color: #cce7e4 !important;
+  background: #fff !important;
+  color: var(--lg-teal) !important;
+}
+
+.lg-live-pill i {
+  background: #18a875 !important;
+  box-shadow: none !important;
+}
+
+.lg-orbit {
+  border-color: #cbdfe2 !important;
+}
+
+.orbit-a {
+  border-left-color:
+    rgba(8, 127, 122, 0.45) !important;
+}
+
+.orbit-b {
+  border-right-color:
+    rgba(23, 92, 211, 0.26) !important;
+}
+
+.orbit-c {
+  border-color:
+    rgba(8, 127, 122, 0.12) !important;
+}
+
+.lg-core {
+  background: #fff !important;
+  border-color: #bcdedb !important;
+  box-shadow:
+    0 12px 32px
+    rgba(8, 127, 122, 0.12) !important;
+}
+
+.lg-core-ring {
+  color: var(--lg-teal) !important;
+  background: var(--lg-teal-soft) !important;
+  border-color: #cce7e4 !important;
+}
+
+.lg-core span {
+  color: var(--lg-teal) !important;
+}
+
+.lg-node {
+  background: #fff !important;
+  border-color: var(--lg-border) !important;
+  color: var(--lg-text-2) !important;
+  box-shadow: var(--lg-shadow-sm) !important;
+}
+
+.lg-node svg {
+  color: var(--lg-teal) !important;
+}
+
+.lg-kicker {
+  color: var(--lg-teal) !important;
+}
+
+.lg-copy h1 {
+  color: var(--lg-text) !important;
+}
+
+.lg-copy h1 em {
+  background: none !important;
+  color: var(--lg-teal) !important;
+}
+
+.lg-copy p {
+  color: var(--lg-text-2) !important;
+}
+
+.lg-metrics {
+  border-top-color:
+    var(--lg-border) !important;
+}
+
+.lg-metric strong {
+  color: var(--lg-text) !important;
+}
+
+.lg-metric span {
+  color: var(--lg-muted) !important;
+}
+
+.lg-metric i {
+  background: #18a875 !important;
+  box-shadow: none !important;
+}
+
+.lg-panel {
+  padding: 48px !important;
+  background: #fff !important;
+  color: var(--lg-text) !important;
+}
+
+.lg-eyebrow,
+.lg-field-label {
+  color: var(--lg-muted) !important;
+}
+
+.lg-panel h2,
+.lg-signup-title {
+  color: var(--lg-text) !important;
+}
+
+.lg-panel h2 span,
+.lg-signup-title span {
+  color: var(--lg-teal) !important;
+}
+
+.lg-panel-header p,
+.lg-signup-sub {
+  color: var(--lg-text-2) !important;
+}
+
+.lg-security-badge {
+  border-color: #cce7e4 !important;
+  background: var(--lg-teal-soft) !important;
+  color: var(--lg-teal) !important;
+}
+
+.lg-status-line {
+  border-color: var(--lg-border) !important;
+  color: var(--lg-muted) !important;
+}
+
+.lg-status-line i {
+  background: #18a875 !important;
+  box-shadow: none !important;
+}
+
+.lg-input-wrap {
+  min-height: 54px !important;
+  background: #fff !important;
+  border-color:
+    var(--lg-border-strong) !important;
+  color: var(--lg-muted) !important;
+}
+
+.lg-input-wrap:focus-within {
+  border-color: #69b5b0 !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(8, 127, 122, 0.09) !important;
+}
+
+.lg-input-wrap input {
+  color: var(--lg-text) !important;
+}
+
+.lg-input-wrap input::placeholder {
+  color: #9aaab5 !important;
+}
+
+.lg-primary {
+  min-height: 54px !important;
+  border-radius: 11px !important;
+
+  background:
+    var(--lg-teal) !important;
+
+  box-shadow:
+    0 8px 20px
+    rgba(8, 127, 122, 0.15) !important;
+
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+}
+
+.lg-primary:hover {
+  background:
+    var(--lg-teal-dark) !important;
+}
+
+.lg-divider {
+  color: var(--lg-muted) !important;
+}
+
+.lg-divider:before,
+.lg-divider:after {
+  background: var(--lg-border) !important;
+}
+
+.lg-create {
+  background:
+    var(--lg-surface-2) !important;
+
+  border-color:
+    var(--lg-border) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.lg-create:hover {
+  border-color: #9acbc7 !important;
+  background: #f5fbfa !important;
+}
+
+.lg-create-icon {
+  background:
+    var(--lg-teal-soft) !important;
+
+  color:
+    var(--lg-teal) !important;
+}
+
+.lg-create small {
+  color:
+    var(--lg-muted) !important;
+}
+
+.lg-safety {
+  border-color:
+    var(--lg-border) !important;
+
+  color:
+    var(--lg-muted) !important;
+}
+
+.lg-safety svg {
+  color:
+    var(--lg-teal) !important;
+}
+
+.lg-notice.ok {
+  background:
+    var(--lg-green-soft) !important;
+
+  border-color:
+    #cbe8dc !important;
+
+  color:
+    #17684f !important;
+}
+
+.lg-notice.error {
+  background:
+    var(--lg-red-soft) !important;
+
+  border-color:
+    #f1cbc7 !important;
+
+  color:
+    #a12620 !important;
+}
+
+.lg-back {
+  color:
+    var(--lg-text-2) !important;
+}
+
+.lg-progress span {
+  background:
+    #e4eaee !important;
+}
+
+.lg-progress span.active {
+  background:
+    var(--lg-teal) !important;
+
+  box-shadow: none !important;
+}
+
+.lg-role {
+  background: #fff !important;
+  border-color:
+    var(--lg-border) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.lg-role:hover,
+.lg-role.selected {
+  border-color:
+    #8fc6c1 !important;
+
+  background:
+    #f5fbfa !important;
+}
+
+.lg-role:before {
+  display: none !important;
+}
+
+.lg-role-icon {
+  color:
+    var(--lg-teal) !important;
+
+  background:
+    var(--lg-teal-soft) !important;
+
+  border-color:
+    #d2e9e7 !important;
+}
+
+.lg-role-content small {
+  color:
+    var(--lg-teal) !important;
+}
+
+.lg-role-content em {
+  color:
+    var(--lg-muted) !important;
+}
+
+.lg-role-arrow {
+  color:
+    var(--lg-muted) !important;
+}
+
+.lg-verify-strip,
+.lg-role-banner {
+  background:
+    #f5faf9 !important;
+
+  border-color:
+    #d7e9e7 !important;
+
+  color:
+    var(--lg-teal) !important;
+}
+
+.lg-verify-strip > span {
+  color:
+    var(--lg-text-2) !important;
+}
+
+.lg-verify-strip strong,
+.lg-role-banner strong {
+  color:
+    var(--lg-text) !important;
+}
+
+.lg-role-banner-icon {
+  background:
+    var(--lg-teal-soft) !important;
+}
+
+.lg-role-banner small {
+  color:
+    var(--lg-muted) !important;
+}
+
+.lg-secondary {
+  background:
+    #fff !important;
+
+  border-color:
+    var(--lg-border-strong) !important;
+
+  color:
+    var(--lg-text-2) !important;
+}
+
+.lg-footer {
+  display: none !important;
+}
+
+/* =========================================================
+   COMMON DASHBOARD SHELL
+   ========================================================= */
+
+.ag-shell,
+.hg-shell,
+.provider-workspace,
+.coordinator-shell,
+.provider-shell,
+.command-center,
+.command-center-shell {
+  min-height: 100vh !important;
+
+  background:
+    var(--lg-bg) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.ag-background,
+.hg-background,
+.pws-bg-grid,
+.pws-orb,
+.provider-workspace::before {
+  display: none !important;
+}
+
+.ag-container,
+.hg-container,
+.pws-shell {
+  width:
+    min(
+      1420px,
+      calc(100% - 48px)
+    ) !important;
+
+  margin:
+    0 auto !important;
+
+  padding:
+    24px 0 42px !important;
+}
+
+/* =========================================================
+   HEADERS
+   ========================================================= */
+
+.ag-header,
+.hg-header,
+.pws-header {
+  border-color:
+    var(--lg-border) !important;
+
+  background:
+    #fff !important;
+
+  color:
+    var(--lg-text) !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+}
+
+.ag-brand h1,
+.hg-brand h1,
+.pws-brand h1,
+.ops-hero h2,
+.ops-card h3,
+.pws-shell h2,
+.pws-shell h3 {
+  color:
+    var(--lg-text) !important;
+}
+
+.ag-brand span,
+.hg-brand span,
+.ops-hero > div > span,
+.ops-card-head span,
+.critical-card span,
+.capability span,
+.gps-values span,
+.facility-details span,
+.pws-field span {
+  color:
+    var(--lg-muted) !important;
+}
+
+.ag-brand p,
+.hg-brand p,
+.ops-hero p,
+.ops-note,
+.pws-field small {
+  color:
+    var(--lg-text-2) !important;
+}
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+
+.ag-logo,
+.hg-logo,
+.pws-brand-icon,
+.pws-metric-icon {
+  background:
+    var(--lg-teal-soft) !important;
+
+  color:
+    var(--lg-teal) !important;
+
+  border:
+    1px solid #d2e9e7 !important;
+
+  box-shadow:
+    none !important;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.ag-network,
+.hg-live,
+.pws-status {
+  border:
+    1px solid #cce7e4 !important;
+
+  background:
+    var(--lg-green-soft) !important;
+
+  color:
+    var(--lg-green) !important;
+}
+
+.ag-small,
+.ag-logout,
+.hg-small,
+.hg-logout,
+.pws-refresh,
+.pws-logout {
+  border:
+    1px solid var(--lg-border-strong) !important;
+
+  background:
+    #fff !important;
+
+  color:
+    var(--lg-text-2) !important;
+
+  box-shadow:
+    none !important;
+}
+
+.ag-logout,
+.hg-logout {
+  color:
+    #9f2924 !important;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.ag-error,
+.hg-error,
+.pws-error {
+  background:
+    var(--lg-red-soft) !important;
+
+  border-color:
+    #f0cbc7 !important;
+
+  color:
+    #a12620 !important;
+}
+
+/* =========================================================
+   PROVIDER OPERATIONS
+   ========================================================= */
+
+.ops-page {
+  width:
+    min(
+      1420px,
+      calc(100% - 48px)
+    ) !important;
+
+  margin:
+    0 auto !important;
+
+  padding:
+    24px 0 48px !important;
+
+  display:
+    grid !important;
+
+  gap:
+    18px !important;
+}
+
+.ops-hero {
+  padding:
+    24px 26px !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    16px !important;
+
+  background:
+    #fff !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+}
+
+.ops-card,
+.critical-card,
+.assignment-card,
+.gps-card,
+.facility-card,
+.readiness-card,
+.hg-panel,
+.hg-card,
+.ag-console,
+.ag-vehicle-card,
+.ag-gps-card {
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    15px !important;
+
+  background:
+    #fff !important;
+
+  color:
+    var(--lg-text) !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+}
+
+.ops-card {
+  padding:
+    20px !important;
+}
+
+.ops-card-head {
+  border-bottom:
+    1px solid #e8edf0 !important;
+}
+
+/* =========================================================
+   METRICS
+   ========================================================= */
+
+.ag-stat,
+.hg-stat,
+.pws-metric {
+  background:
+    #fff !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    13px !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.ag-stat strong,
+.hg-stat strong,
+.pws-metric strong {
+  color:
+    var(--lg-text) !important;
+}
+
+.ag-stat span,
+.ag-stat small,
+.hg-stat span,
+.hg-stat small,
+.pws-metric span {
+  color:
+    var(--lg-muted) !important;
+}
+
+/* =========================================================
+   CAPABILITIES
+   ========================================================= */
+
+.capability,
+.facility-details > div,
+.gps-values > div {
+  background:
+    var(--lg-surface-2) !important;
+
+  border:
+    1px solid #e4eaee !important;
+
+  border-radius:
+    11px !important;
+}
+
+.capability.on {
+  background:
+    var(--lg-green-soft) !important;
+
+  border-color:
+    #cbe7db !important;
+
+  color:
+    var(--lg-green) !important;
+}
+
+.capability.off {
+  color:
+    #8a5b58 !important;
+}
+
+.capability strong,
+.facility-details strong,
+.gps-values strong,
+.pws-field strong {
+  color:
+    var(--lg-text) !important;
+}
+
+/* =========================================================
+   AMBULANCE ASSIGNMENTS
+   ========================================================= */
+
+.ag-assignment,
+.hg-incident {
+  background:
+    #fff !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    12px !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.ag-assignment:hover,
+.ag-assignment.active,
+.hg-incident:hover,
+.hg-incident.active {
+  background:
+    #f5fbfa !important;
+
+  border-color:
+    #9bcac6 !important;
+}
+
+.ag-assignment-body p,
+.hg-incident-body p {
+  color:
+    var(--lg-text-2) !important;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.ops-page table,
+.coordinator-shell table,
+.command-center table {
+  width:
+    100% !important;
+
+  border-collapse:
+    separate !important;
+
+  border-spacing:
+    0 !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    12px !important;
+
+  overflow:
+    hidden !important;
+}
+
+.ops-page th,
+.coordinator-shell th,
+.command-center th {
+  padding:
+    12px 14px !important;
+
+  background:
+    #f7f9fa !important;
+
+  color:
+    var(--lg-muted) !important;
+
+  text-align:
+    left !important;
+
+  border-bottom:
+    1px solid var(--lg-border) !important;
+}
+
+.ops-page td,
+.coordinator-shell td,
+.command-center td {
+  padding:
+    13px 14px !important;
+
+  color:
+    var(--lg-text-2) !important;
+
+  border-bottom:
+    1px solid #edf1f3 !important;
+}
+
+/* =========================================================
+   COORDINATOR
+   ========================================================= */
+
+.coordinator-shell,
+.command-center,
+.command-center-shell {
+  background:
+    var(--lg-bg) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.coordinator-shell section,
+.command-center section,
+.command-center .panel,
+.command-center .card {
+  background:
+    #fff !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  border-radius:
+    15px !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+
+  color:
+    var(--lg-text) !important;
+}
+
+.coordinator-shell h1,
+.coordinator-shell h2,
+.coordinator-shell h3,
+.command-center h1,
+.command-center h2,
+.command-center h3 {
+  color:
+    var(--lg-text) !important;
+}
+
+.coordinator-shell p,
+.command-center p {
+  color:
+    var(--lg-text-2) !important;
+}
+
+/* =========================================================
+   CITIZEN DASHBOARD
+   ========================================================= */
+
+.citizen-shell {
+  min-height: 100vh !important;
+  background:
+    var(--lg-bg) !important;
+  color:
+    var(--lg-text) !important;
+}
+
+.citizen-header {
+  background:
+    rgba(255, 255, 255, 0.96) !important;
+
+  border-bottom:
+    1px solid var(--lg-border) !important;
+
+  box-shadow:
+    0 1px 4px rgba(16, 42, 60, 0.03);
+}
+
+.citizen-brand-mark {
+  background:
+    var(--lg-teal) !important;
+}
+
+.citizen-hero-copy,
+.citizen-hero-panel,
+.citizen-status-card,
+.citizen-live-map,
+.citizen-side-status,
+.citizen-preparedness,
+.citizen-quick-card {
+  background:
+    #fff !important;
+
+  border:
+    1px solid var(--lg-border) !important;
+
+  box-shadow:
+    var(--lg-shadow-sm) !important;
+}
+
+.citizen-hero-copy {
+  background:
+    linear-gradient(
+      145deg,
+      #eef8f7,
+      #fff
+    ) !important;
+}
+
+.citizen-hero h1 {
+  color:
+    var(--lg-text) !important;
+}
+
+.citizen-hero h1 span {
+  color:
+    var(--lg-teal) !important;
+}
+
+.citizen-sos {
+  background:
+    var(--lg-red) !important;
+}
+
+.citizen-sos:hover {
+  background:
+    #a91f1f !important;
+}
+
+.citizen-call {
+  color:
+    var(--lg-teal-dark) !important;
+}
+
+/* =========================================================
+   COMMON BUTTONS
+   ========================================================= */
+
+.lifegrid-primary-button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding:
+    0 16px;
+
+  border:
+    1px solid var(--lg-teal);
+
+  border-radius:
+    10px;
+
+  background:
+    var(--lg-teal);
+
+  color:
+    #fff;
+
+  font-weight:
+    800;
+
+  cursor:
+    pointer;
+}
+
+.lifegrid-primary-button:hover {
+  background:
+    var(--lg-teal-dark);
+}
+
+.lifegrid-secondary-button {
+  min-height: 44px;
+
+  padding:
+    0 16px;
+
+  border:
+    1px solid var(--lg-border-strong);
+
+  border-radius:
+    10px;
+
+  background:
+    #fff;
+
+  color:
+    var(--lg-text-2);
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+/* =========================================================
+   ACCESS ERROR
+   ========================================================= */
+
+.lifegrid-loading-screen,
+.lifegrid-access-screen {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  padding:
+    24px;
+
+  background:
+    var(--lg-bg);
+}
+
+.lifegrid-loading-card,
+.lifegrid-access-card {
+  width:
+    min(480px, 100%);
+
+  padding:
+    36px;
+
+  border:
+    1px solid var(--lg-border);
+
+  border-radius:
+    18px;
+
+  background:
+    #fff;
+
+  box-shadow:
+    var(--lg-shadow);
+}
+
+.lifegrid-loading-logo,
+.lifegrid-access-icon {
+  width:
+    52px;
+
+  height:
+    52px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    14px;
+
+  background:
+    var(--lg-teal-soft);
+
+  color:
+    var(--lg-teal);
+
+  margin-bottom:
+    20px;
+}
+
+.lifegrid-spinner {
+  color:
+    var(--lg-teal);
+
+  animation:
+    lifegrid-spin 1s linear infinite;
+
+  margin-bottom:
+    12px;
+}
+
+.lifegrid-loading-card h1,
+.lifegrid-access-card h1 {
+  margin:
+    0;
+
+  font-size:
+    25px;
+
+  letter-spacing:
+    -0.03em;
+}
+
+.lifegrid-loading-card p,
+.lifegrid-access-card p {
+  margin:
+    8px 0 0;
+
+  color:
+    var(--lg-text-2);
+
+  line-height:
+    1.6;
+}
+
+.lifegrid-loading-status {
+  margin-top:
+    20px;
+
+  padding:
+    11px 13px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  border:
+    1px solid #cbe7db;
+
+  border-radius:
+    10px;
+
+  background:
+    var(--lg-green-soft);
+
+  color:
+    var(--lg-green);
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+}
+
+.lifegrid-loading-status span {
+  width:
+    7px;
+
+  height:
+    7px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--lg-green);
+}
+
+.lifegrid-access-error {
+  display:
+    flex;
+
+  gap:
+    9px;
+
+  align-items:
+    flex-start;
+
+  margin-top:
+    18px;
+
+  padding:
+    13px;
+
+  border:
+    1px solid #f0cbc7;
+
+  border-radius:
+    10px;
+
+  background:
+    var(--lg-red-soft);
+
+  color:
+    #a12620;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.5;
+}
+
+.lifegrid-access-actions {
+  display:
+    flex;
+
+  gap:
+    10px;
+
+  margin-top:
+    20px;
+}
+
+@keyframes lifegrid-spin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .lg-shell {
+    grid-template-columns:
+      1fr !important;
+  }
+
+  .lg-visual {
+    min-height:
+      500px !important;
+
+    border-right:
+      0 !important;
+
+    border-bottom:
+      1px solid var(--lg-border) !important;
+  }
+
+  .critical-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      ) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .lg-auth-page {
+    padding:
+      10px !important;
+  }
+
+  .lg-shell {
+    border-radius:
+      18px !important;
+  }
+
+  .lg-visual {
+    padding:
+      26px 22px !important;
+
+    min-height:
+      430px !important;
+  }
+
+  .lg-visual-center {
+    height:
+      205px !important;
+  }
+
+  .lg-copy h1 {
+    font-size:
+      38px !important;
+  }
+
+  .lg-panel {
+    padding:
+      28px 20px !important;
+  }
+
+  .critical-grid,
+  .capability-row,
+  .facility-details,
+  .gps-values {
+    grid-template-columns:
+      1fr !important;
+  }
+
+  .ops-page,
+  .ag-container,
+  .hg-container,
+  .pws-shell {
+    width:
+      calc(100% - 24px) !important;
+  }
+
+  .lifegrid-access-card,
+  .lifegrid-loading-card {
+    padding:
+      25px 20px;
+  }
+
+  .lifegrid-access-actions {
+    flex-direction:
+      column;
+  }
+}

@@ -1,0 +1,619 @@
+@import url(
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+);
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color:
+    #12263a;
+
+  background:
+    #f4f7f9;
+
+  font-synthesis:
+    none;
+
+  text-rendering:
+    optimizeLegibility;
+}
+
+* {
+  box-sizing:
+    border-box;
+}
+
+html,
+body,
+#root {
+  width:
+    100%;
+
+  min-height:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+}
+
+body {
+  overflow-x:
+    hidden;
+
+  background:
+    #f4f7f9;
+}
+
+button,
+input,
+select,
+textarea {
+  font:
+    inherit;
+}
+
+button {
+  cursor:
+    pointer;
+}
+
+button:disabled {
+  cursor:
+    not-allowed;
+  opacity:
+    0.65;
+}
+
+a {
+  color:
+    inherit;
+}
+
+img {
+  max-width:
+    100%;
+}
+
+::selection {
+  background:
+    #dff3f1;
+
+  color:
+    #066b67;
+}
+
+/* LIFEGRID emergency report modal: final layout overrides */
+.lifegrid-emergency-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  overflow-y: auto !important;
+  background: rgba(15, 32, 48, 0.55) !important;
+  backdrop-filter: blur(4px);
+  box-sizing: border-box !important;
+}
+
+.lifegrid-emergency-overlay *,
+.lifegrid-emergency-overlay *::before,
+.lifegrid-emergency-overlay *::after {
+  box-sizing: border-box;
+}
+
+.lifegrid-emergency-modal {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 1 760px !important;
+  width: min(760px, calc(100vw - 40px)) !important;
+  max-width: 760px !important;
+  height: auto !important;
+  max-height: calc(100vh - 40px) !important;
+  max-height: calc(100dvh - 40px) !important;
+  min-height: 0 !important;
+  margin: auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid #d7e3e8 !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+  color: #17324a !important;
+  box-shadow: 0 24px 70px rgba(16, 40, 56, 0.25) !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-topbar {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  flex: 0 0 auto !important;
+  gap: 16px !important;
+  padding: 22px 24px 18px !important;
+  border-bottom: 1px solid #e4ecef !important;
+  background: #fff !important;
+}
+
+.lifegrid-emergency-modal .modal-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lifegrid-emergency-modal .modal-header h2 {
+  margin: 2px 0 0 !important;
+  color: #17324a !important;
+  font-size: 25px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+}
+
+.lifegrid-emergency-modal .modal-kicker {
+  color: #087f7a !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.13em !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-subtitle {
+  margin: 5px 0 0 !important;
+  color: #64798a !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.lifegrid-emergency-modal .modal-alert-icon {
+  display: grid !important;
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  height: 48px !important;
+  place-items: center !important;
+  border-radius: 13px !important;
+  background: #fff0ef !important;
+  color: #c62828 !important;
+}
+
+.lifegrid-emergency-modal .modal-close {
+  position: static !important;
+  display: grid !important;
+  flex: 0 0 38px !important;
+  width: 38px !important;
+  height: 38px !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid #d7e2e7 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #526b7b !important;
+  cursor: pointer !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-scroll {
+  display: grid !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  gap: 17px !important;
+  padding: 20px 24px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: #fff !important;
+  overscroll-behavior: contain;
+}
+
+.lifegrid-emergency-modal .lifegrid-location-notice {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 13px 15px !important;
+  border: 1px solid #cfe5e7 !important;
+  border-radius: 12px !important;
+  background: #f1f9f9 !important;
+  color: #31586a !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-location-notice strong,
+.lifegrid-emergency-modal .lifegrid-location-notice span {
+  display: block !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-location-notice strong {
+  color: #173f50 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-location-notice span {
+  margin-top: 3px !important;
+  color: #607888 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-form-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.42fr) !important;
+  gap: 16px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field {
+  display: grid !important;
+  min-width: 0 !important;
+  gap: 7px !important;
+  margin: 0 !important;
+  color: #1e3b53 !important;
+  font-size: 13px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field > span,
+.lifegrid-emergency-modal .lifegrid-field-label-row {
+  color: #1e3b53 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1.4 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-select-wrap {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-select-wrap > svg {
+  position: absolute !important;
+  right: 13px !important;
+  pointer-events: none !important;
+  color: #607888 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field select,
+.lifegrid-emergency-modal .lifegrid-field input {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 0 13px !important;
+  border: 1px solid #ccd9df !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #17324a !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  box-shadow: none !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-select-wrap select {
+  padding-right: 38px !important;
+  appearance: none !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-number-field {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  min-width: 0 !important;
+  min-height: 48px !important;
+  padding: 0 12px !important;
+  border: 1px solid #ccd9df !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #6a8190 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-number-field svg {
+  flex: 0 0 auto !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-number-field input {
+  min-height: 42px !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field input:focus,
+.lifegrid-emergency-modal .lifegrid-field select:focus,
+.lifegrid-emergency-modal .report-description-wrap textarea:focus {
+  border-color: #0b8c86 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px #e2f4f2 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-text-input-with-icon {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-text-input-with-icon > svg {
+  position: absolute !important;
+  left: 13px !important;
+  color: #718897 !important;
+  pointer-events: none !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-text-input-with-icon input {
+  padding-left: 40px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-choice-grid,
+.lifegrid-emergency-modal .lifegrid-warning-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 9px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-choice-grid button,
+.lifegrid-emergency-modal .lifegrid-warning-grid button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 9px !important;
+  min-width: 0 !important;
+  min-height: 45px !important;
+  margin: 0 !important;
+  padding: 10px 12px !important;
+  border: 1px solid #d3e0e6 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #456175 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-choice-grid button.selected.safe {
+  border-color: #9edbc8 !important;
+  background: #eff9f5 !important;
+  color: #16775b !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-choice-grid button.selected.unsafe,
+.lifegrid-emergency-modal .lifegrid-warning-grid button.selected {
+  border-color: #efc1bc !important;
+  background: #fff4f2 !important;
+  color: #a12620 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-warning-check {
+  display: grid !important;
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  place-items: center !important;
+  border: 1px solid #cbd9df !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  color: #087f7a !important;
+  font-size: 12px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field-label-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-voice-hint {
+  color: #087f7a !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.lifegrid-emergency-modal .report-description-wrap {
+  position: relative !important;
+  min-width: 0 !important;
+}
+
+.lifegrid-emergency-modal .report-description-wrap textarea {
+  display: block !important;
+  width: 100% !important;
+  min-height: 145px !important;
+  max-height: 240px !important;
+  margin: 0 !important;
+  padding: 13px 14px 60px !important;
+  border: 1px solid #ccd9df !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+  color: #17324a !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  resize: vertical !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-voice-bar {
+  position: absolute !important;
+  right: 9px !important;
+  bottom: 9px !important;
+  left: 9px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  pointer-events: none !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-voice-bar button,
+.lifegrid-emergency-modal .lifegrid-voice-bar label,
+.lifegrid-emergency-modal .lifegrid-voice-bar select {
+  pointer-events: auto !important;
+}
+
+.lifegrid-emergency-modal .voice-report-button {
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 38px !important;
+  padding: 0 12px !important;
+  border: 1px solid #b9dedb !important;
+  border-radius: 9px !important;
+  background: #eef8f7 !important;
+  color: #087f7a !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+}
+
+.lifegrid-emergency-modal .voice-report-button.listening {
+  border-color: #efc1bc !important;
+  background: #fff1f0 !important;
+  color: #b42318 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-language {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #607888 !important;
+  font-size: 11px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-language select {
+  width: auto !important;
+  max-width: 145px !important;
+  min-height: 36px !important;
+  padding: 0 8px !important;
+  border: 1px solid #d3e0e6 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  color: #17324a !important;
+  font-size: 11px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-field-help {
+  color: #708493 !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-voice-error {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #f0c8c3 !important;
+  border-radius: 10px !important;
+  background: #fff4f2 !important;
+  color: #a12620 !important;
+  font-size: 12px !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-safety-note {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 9px !important;
+  padding: 12px 13px !important;
+  border-radius: 10px !important;
+  background: #f7f9fa !important;
+  color: #667d8b !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-modal-actions {
+  display: grid !important;
+  flex: 0 0 auto !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  gap: 10px !important;
+  padding: 15px 24px 18px !important;
+  border-top: 1px solid #e4ecef !important;
+  background: #fff !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-primary-action,
+.lifegrid-emergency-modal .lifegrid-secondary-action {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 0 15px !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-primary-action {
+  border: 1px solid #b42318 !important;
+  background: #c62828 !important;
+  color: #fff !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-primary-action:disabled,
+.lifegrid-emergency-modal .lifegrid-secondary-action:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
+.lifegrid-emergency-modal .lifegrid-secondary-action {
+  border: 1px solid #cbd9df !important;
+  background: #fff !important;
+  color: #34586c !important;
+}
+
+@media (max-width: 640px) {
+  .lifegrid-emergency-overlay {
+    align-items: stretch !important;
+    padding: 0 !important;
+  }
+
+  .lifegrid-emergency-modal {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+  }
+
+  .lifegrid-emergency-modal .lifegrid-modal-topbar {
+    padding: 17px !important;
+  }
+
+  .lifegrid-emergency-modal .modal-header h2 {
+    font-size: 21px !important;
+  }
+
+  .lifegrid-emergency-modal .lifegrid-modal-scroll {
+    padding: 16px !important;
+    gap: 15px !important;
+  }
+
+  .lifegrid-emergency-modal .lifegrid-form-grid,
+  .lifegrid-emergency-modal .lifegrid-choice-grid,
+  .lifegrid-emergency-modal .lifegrid-warning-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .lifegrid-emergency-modal .lifegrid-modal-actions {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) !important;
+  }
+}

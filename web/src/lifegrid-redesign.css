@@ -1,0 +1,2707 @@
+/* ============================================================
+   LIFEGRID FINAL UI SYSTEM
+   Citizen Emergency Center
+   Clean • Professional • Responsive • Accessible
+============================================================ */
+
+:root {
+  --lg-bg: #f3f7f9;
+  --lg-surface: #ffffff;
+  --lg-surface-soft: #f8fbfc;
+  --lg-border: #d9e5ea;
+  --lg-border-strong: #c5d5dc;
+
+  --lg-navy: #102a43;
+  --lg-text: #173b55;
+  --lg-text-soft: #496579;
+  --lg-muted: #718798;
+
+  --lg-teal: #087f7a;
+  --lg-teal-dark: #066b67;
+  --lg-teal-soft: #eaf7f6;
+  --lg-teal-border: #bfe0dd;
+
+  --lg-red: #c62828;
+  --lg-red-dark: #a51f1f;
+  --lg-red-soft: #fff3f2;
+  --lg-red-border: #f0c8c4;
+
+  --lg-green: #16835f;
+  --lg-green-soft: #edf8f4;
+
+  --lg-shadow-sm:
+    0 5px 18px rgba(17, 51, 70, 0.055);
+
+  --lg-shadow:
+    0 14px 40px rgba(17, 51, 70, 0.09);
+}
+
+/* ============================================================
+   GLOBAL
+============================================================ */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 !important;
+  background: var(--lg-bg) !important;
+  color: var(--lg-text) !important;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   CITIZEN PAGE
+============================================================ */
+
+.lifegrid-citizen-page {
+  min-height: 100vh;
+  padding-bottom: 42px;
+  background:
+    radial-gradient(
+      circle at 5% 0%,
+      rgba(8, 127, 122, 0.055),
+      transparent 27rem
+    ),
+    var(--lg-bg) !important;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.lifegrid-citizen-header {
+  width: min(1380px, calc(100% - 48px));
+  min-height: 70px;
+  margin: 18px auto 0;
+  padding: 12px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.97) !important;
+  border: 1px solid var(--lg-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--lg-shadow-sm) !important;
+
+  position: relative;
+  z-index: 10;
+}
+
+.lifegrid-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.lifegrid-brand-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+  background: var(--lg-teal) !important;
+  color: white !important;
+
+  box-shadow:
+    0 7px 18px rgba(8, 127, 122, 0.17);
+}
+
+.lifegrid-brand strong {
+  display: block;
+  color: var(--lg-navy) !important;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.lifegrid-brand span {
+  display: block;
+  margin-top: 3px;
+  color: var(--lg-muted) !important;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lifegrid-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.lifegrid-user-chip {
+  min-height: 39px;
+  max-width: 300px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--lg-border) !important;
+  border-radius: 10px !important;
+  background: var(--lg-surface-soft) !important;
+
+  color: var(--lg-text-soft) !important;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lifegrid-user-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lifegrid-user-chip svg {
+  color: var(--lg-teal);
+  flex: 0 0 auto;
+}
+
+.lifegrid-logout-button {
+  min-height: 39px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--lg-border-strong) !important;
+  border-radius: 10px !important;
+
+  background: white !important;
+  color: var(--lg-text-soft) !important;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.lifegrid-logout-button:hover {
+  background: #f7fafb !important;
+  border-color: #aac4cc !important;
+  color: var(--lg-navy) !important;
+}
+
+/* ============================================================
+   MAIN TWO COLUMN LAYOUT
+============================================================ */
+
+.lifegrid-citizen-layout {
+  width: min(1380px, calc(100% - 48px));
+  margin: 24px auto 0;
+
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 0.72fr)
+    minmax(620px, 1.28fr);
+
+  gap: 22px;
+  align-items: start;
+}
+
+/* ============================================================
+   LEFT INTRO
+============================================================ */
+
+.lifegrid-citizen-intro {
+  min-height: 720px;
+  padding: 34px 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf7f7 0%,
+      #f8fbfc 65%,
+      #ffffff 100%
+    );
+
+  box-shadow: var(--lg-shadow-sm);
+}
+
+.lifegrid-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  padding: 7px 10px;
+
+  border: 1px solid var(--lg-teal-border);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--lg-teal) !important;
+
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.lifegrid-citizen-intro h1 {
+  margin: 22px 0 15px;
+
+  color: var(--lg-navy) !important;
+
+  font-size: clamp(42px, 4.3vw, 65px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.lifegrid-citizen-intro h1 span {
+  color: var(--lg-teal) !important;
+}
+
+.lifegrid-intro-text {
+  max-width: 540px;
+
+  margin: 0;
+
+  color: var(--lg-text-soft) !important;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   RESPONSE FLOW
+============================================================ */
+
+.lifegrid-response-flow {
+  margin-top: 30px;
+  padding: 20px;
+
+  border: 1px solid #d7e6e8;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.86);
+
+  box-shadow: 0 7px 20px rgba(22, 52, 70, 0.045);
+}
+
+.lifegrid-flow-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.lifegrid-flow-icon {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal);
+}
+
+.lifegrid-flow-heading strong {
+  display: block;
+  color: var(--lg-navy);
+  font-size: 14px;
+}
+
+.lifegrid-flow-heading span {
+  display: block;
+  margin-top: 4px;
+  color: var(--lg-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.lifegrid-flow-steps {
+  margin-top: 18px;
+
+  display: grid;
+  grid-template-columns:
+    1fr auto 1fr auto 1fr;
+
+  align-items: center;
+  gap: 7px;
+}
+
+.lifegrid-flow-step {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lifegrid-flow-step > span {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal);
+
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.lifegrid-flow-step strong {
+  display: block;
+  color: var(--lg-navy);
+  font-size: 11px;
+}
+
+.lifegrid-flow-step small {
+  display: block;
+  margin-top: 2px;
+  color: var(--lg-muted);
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.lifegrid-flow-arrow {
+  color: #91a8b2;
+}
+
+/* ============================================================
+   112 HELP CARD
+============================================================ */
+
+.lifegrid-help-card {
+  margin-top: auto;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 18px;
+
+  border: 1px solid var(--lg-red-border);
+  border-radius: 15px;
+
+  background: #fffafa;
+}
+
+.lifegrid-help-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: var(--lg-red-soft);
+  color: var(--lg-red);
+}
+
+.lifegrid-help-card strong {
+  display: block;
+  color: var(--lg-navy);
+  font-size: 13px;
+}
+
+.lifegrid-help-card p {
+  margin: 4px 0 10px;
+  color: var(--lg-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.lifegrid-help-card button {
+  min-height: 35px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 11px;
+
+  border: 1px solid #e2aaa5;
+  border-radius: 8px;
+
+  background: white;
+  color: var(--lg-red);
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.lifegrid-help-card button:hover {
+  background: var(--lg-red-soft);
+}
+
+.lifegrid-trust-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  margin-top: 15px;
+
+  color: var(--lg-muted);
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lifegrid-trust-row svg {
+  flex: 0 0 auto;
+  color: var(--lg-teal);
+}
+
+/* ============================================================
+   RIGHT FORM PANEL
+============================================================ */
+
+.lifegrid-emergency-panel {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: var(--lg-shadow);
+}
+
+.lifegrid-form-header {
+  min-height: 112px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 23px 25px;
+
+  border-bottom: 1px solid #e4ecef;
+}
+
+.lifegrid-form-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.lifegrid-form-alert-icon {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--lg-red-border);
+  border-radius: 11px;
+
+  background: var(--lg-red-soft);
+  color: var(--lg-red);
+}
+
+.lifegrid-form-title > div:last-child > span {
+  display: block;
+  color: var(--lg-muted);
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.lifegrid-form-title h2 {
+  margin: 4px 0 4px;
+
+  color: var(--lg-navy) !important;
+
+  font-size: 23px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.lifegrid-form-title p {
+  margin: 0;
+
+  color: var(--lg-muted);
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.lifegrid-required-note {
+  flex: 0 0 auto;
+
+  color: var(--lg-muted);
+  font-size: 10px;
+}
+
+.lifegrid-required-note strong {
+  margin-right: 3px;
+  color: var(--lg-red);
+}
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.lifegrid-emergency-form {
+  display: block;
+}
+
+.lifegrid-form-section {
+  padding: 24px 25px;
+
+  border-bottom: 1px solid #e8eef1;
+}
+
+.lifegrid-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  margin-bottom: 20px;
+}
+
+.lifegrid-section-number {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal);
+
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.lifegrid-section-heading h3 {
+  margin: 1px 0 4px;
+
+  color: var(--lg-navy) !important;
+
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.lifegrid-section-heading p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--lg-muted);
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   FIELD
+============================================================ */
+
+.lifegrid-field-block {
+  margin-top: 18px;
+}
+
+.lifegrid-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--lg-navy);
+
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.lifegrid-label span {
+  color: var(--lg-red);
+  margin-left: 3px;
+}
+
+.lifegrid-field-description {
+  margin: 4px 0 0;
+
+  color: var(--lg-muted);
+
+  font-size: 10px;
+}
+
+/* ============================================================
+   EMERGENCY TYPE CARDS
+============================================================ */
+
+.lifegrid-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lifegrid-type-card {
+  min-height: 78px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 12px;
+
+  background: white;
+
+  color: var(--lg-navy);
+
+  text-align: left;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.lifegrid-type-card:hover {
+  border-color: #9cc9c5;
+  background: #fbfefe;
+  transform: translateY(-1px);
+}
+
+.lifegrid-type-card.selected {
+  border-color: var(--lg-teal);
+  background: var(--lg-teal-soft);
+  box-shadow:
+    0 0 0 2px rgba(8, 127, 122, 0.08);
+}
+
+.lifegrid-type-icon {
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  background: #f0f5f6;
+  color: var(--lg-teal);
+}
+
+.lifegrid-type-card.selected
+  .lifegrid-type-icon {
+  background: white;
+}
+
+.lifegrid-type-card strong {
+  color: var(--lg-navy);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.lifegrid-selected-check {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  color: var(--lg-teal);
+}
+
+/* ============================================================
+   PEOPLE COUNTER
+============================================================ */
+
+.lifegrid-people-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.lifegrid-people-counter {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 11px;
+
+  overflow: hidden;
+
+  background: white;
+}
+
+.lifegrid-people-counter button {
+  width: 45px;
+  height: 48px;
+
+  border: 0;
+
+  background: #f5f9fa;
+  color: var(--lg-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.lifegrid-people-counter button:hover:not(:disabled) {
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal);
+}
+
+.lifegrid-people-counter button:disabled {
+  color: #aab8be;
+}
+
+.lifegrid-people-counter > div {
+  min-width: 72px;
+
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-left: 1px solid var(--lg-border);
+  border-right: 1px solid var(--lg-border);
+
+  color: var(--lg-navy);
+}
+
+.lifegrid-people-counter strong {
+  font-size: 16px;
+}
+
+/* ============================================================
+   SAFETY
+============================================================ */
+
+.lifegrid-safety-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lifegrid-safety-option {
+  min-height: 50px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 10px;
+
+  background: white;
+  color: var(--lg-navy);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.lifegrid-safety-option:hover {
+  border-color: #9fc9c6;
+  background: #f8fcfc;
+}
+
+.lifegrid-safety-option.selected {
+  border-color: var(--lg-teal);
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal-dark);
+}
+
+.lifegrid-safety-option.danger-option.selected {
+  border-color: #d9aaa5;
+  background: var(--lg-red-soft);
+  color: var(--lg-red);
+}
+
+/* ============================================================
+   WARNING SIGNS
+============================================================ */
+
+.lifegrid-warning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.lifegrid-warning-option {
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 10px;
+
+  background: white;
+  color: var(--lg-navy);
+
+  text-align: left;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.lifegrid-warning-option:hover {
+  border-color: #b1cccf;
+  background: #fbfdfd;
+}
+
+.lifegrid-warning-option.selected {
+  border-color: #d98f89;
+  background: var(--lg-red-soft);
+  color: #7e2825;
+}
+
+.lifegrid-checkbox {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #bdcfd5;
+  border-radius: 6px;
+
+  background: white;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.lifegrid-warning-option.selected
+  .lifegrid-checkbox {
+  border-color: var(--lg-red);
+  background: var(--lg-red);
+}
+
+/* ============================================================
+   DESCRIPTION
+============================================================ */
+
+.lifegrid-description-box {
+  overflow: hidden;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 12px;
+
+  background: var(--lg-surface-soft);
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.lifegrid-description-box:focus-within {
+  border-color: #73b5b1;
+  box-shadow:
+    0 0 0 3px rgba(8, 127, 122, 0.08);
+  background: white;
+}
+
+.lifegrid-description-box textarea {
+  width: 100%;
+  min-height: 145px;
+
+  display: block;
+
+  padding: 14px 15px;
+
+  resize: vertical;
+
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: transparent !important;
+  color: var(--lg-navy) !important;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.lifegrid-description-box textarea::placeholder {
+  color: #91a3ae;
+}
+
+.lifegrid-description-footer {
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 10px;
+
+  border-top: 1px solid #e4ecef;
+  background: white;
+}
+
+.lifegrid-mic-button {
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 11px;
+
+  border: 1px solid var(--lg-teal-border);
+  border-radius: 8px;
+
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal);
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.lifegrid-mic-button:hover:not(:disabled) {
+  background: #def2f0;
+}
+
+.lifegrid-mic-button.is-listening {
+  border-color: var(--lg-red-border);
+  background: var(--lg-red-soft);
+  color: var(--lg-red);
+}
+
+.lifegrid-language-control {
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 8px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 8px;
+
+  color: var(--lg-muted);
+
+  background: white;
+}
+
+.lifegrid-language-control select {
+  height: 32px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--lg-text);
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.lifegrid-character-count {
+  margin-left: auto;
+
+  color: #91a1aa;
+
+  font-size: 10px;
+}
+
+/* ============================================================
+   VOICE STATUS
+============================================================ */
+
+.lifegrid-mic-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 8px;
+
+  color: var(--lg-teal);
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.lifegrid-mic-status > span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--lg-red);
+
+  box-shadow:
+    0 0 0 4px rgba(198, 40, 40, 0.08);
+}
+
+/* ============================================================
+   LANGUAGE INFO
+============================================================ */
+
+.lifegrid-language-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+
+  margin-top: 9px;
+
+  color: var(--lg-muted);
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lifegrid-language-info svg {
+  flex: 0 0 auto;
+  color: var(--lg-teal);
+}
+
+/* ============================================================
+   LOCATION
+============================================================ */
+
+.lifegrid-location-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 9px;
+}
+
+.lifegrid-location-input {
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 13px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 10px;
+
+  background: var(--lg-surface-soft);
+  color: var(--lg-teal);
+}
+
+.lifegrid-location-input:focus-within {
+  border-color: #73b5b1;
+  box-shadow:
+    0 0 0 3px rgba(8, 127, 122, 0.08);
+  background: white;
+}
+
+.lifegrid-location-input input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--lg-navy);
+
+  font-size: 12px;
+}
+
+.lifegrid-location-input input::placeholder {
+  color: #91a3ae;
+}
+
+.lifegrid-location-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--lg-teal-border);
+  border-radius: 10px;
+
+  background: var(--lg-teal-soft);
+  color: var(--lg-teal-dark);
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.lifegrid-location-button:hover {
+  background: #def2f0;
+}
+
+.lifegrid-location-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 8px;
+
+  color: var(--lg-muted);
+
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.lifegrid-location-status.captured {
+  color: var(--lg-green);
+}
+
+.lifegrid-location-status svg {
+  color: var(--lg-teal);
+}
+
+/* ============================================================
+   ERROR / SUCCESS
+============================================================ */
+
+.lifegrid-form-error,
+.lifegrid-form-success {
+  margin: 18px 25px 0;
+  padding: 13px 14px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  border-radius: 11px;
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.lifegrid-form-error {
+  border: 1px solid var(--lg-red-border);
+  background: var(--lg-red-soft);
+  color: #8b302c;
+}
+
+.lifegrid-form-success {
+  border: 1px solid #cbe7db;
+  background: var(--lg-green-soft);
+  color: #17684f;
+}
+
+.lifegrid-form-error strong,
+.lifegrid-form-success strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.lifegrid-form-error span,
+.lifegrid-form-success span {
+  display: block;
+}
+
+/* ============================================================
+   FORM FOOTER
+============================================================ */
+
+.lifegrid-form-footer {
+  padding: 20px 25px 24px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.lifegrid-form-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  color: var(--lg-muted);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.lifegrid-form-disclaimer svg {
+  flex: 0 0 auto;
+  color: var(--lg-teal);
+}
+
+.lifegrid-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.lifegrid-call-button,
+.lifegrid-submit-button {
+  min-height: 49px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 10px;
+
+  font-size: 11px;
+  font-weight: 850;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.lifegrid-call-button {
+  padding: 0 14px;
+
+  border: 1px solid var(--lg-red-border);
+
+  background: white;
+  color: var(--lg-red);
+}
+
+.lifegrid-call-button:hover:not(:disabled) {
+  background: var(--lg-red-soft);
+}
+
+.lifegrid-submit-button {
+  min-width: 190px;
+
+  padding: 0 17px;
+
+  border: 0;
+
+  background: var(--lg-teal);
+  color: white;
+
+  box-shadow:
+    0 9px 20px rgba(8, 127, 122, 0.17);
+}
+
+.lifegrid-submit-button:hover:not(:disabled) {
+  background: var(--lg-teal-dark);
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 24px rgba(8, 127, 122, 0.22);
+}
+
+.lifegrid-submit-button:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* ============================================================
+   BOTTOM SERVICE CARDS
+============================================================ */
+
+.lifegrid-citizen-services {
+  width: min(1380px, calc(100% - 48px));
+
+  margin: 18px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.lifegrid-citizen-services > div {
+  min-height: 86px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  padding: 17px;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow: var(--lg-shadow-sm);
+}
+
+.lifegrid-citizen-services > div > svg {
+  flex: 0 0 auto;
+  color: var(--lg-teal);
+}
+
+.lifegrid-citizen-services strong {
+  display: block;
+  color: var(--lg-navy);
+  font-size: 12px;
+}
+
+.lifegrid-citizen-services p {
+  margin: 4px 0 0;
+  color: var(--lg-muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   SPINNER
+============================================================ */
+
+.lifegrid-spin {
+  animation: lifegrid-spin 1s linear infinite;
+}
+
+@keyframes lifegrid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   LOADING
+============================================================ */
+
+.lifegrid-loading-screen {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: var(--lg-bg);
+}
+
+.lifegrid-loading-card {
+  width: min(430px, 100%);
+
+  padding: 35px;
+
+  text-align: center;
+
+  border: 1px solid var(--lg-border);
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow: var(--lg-shadow);
+}
+
+.lifegrid-loading-logo {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: var(--lg-teal);
+  color: white;
+}
+
+.lifegrid-spinner {
+  color: var(--lg-teal);
+
+  animation: lifegrid-spin 1s linear infinite;
+}
+
+.lifegrid-loading-card h1 {
+  margin: 13px 0 6px;
+  color: var(--lg-navy);
+  font-size: 21px;
+}
+
+.lifegrid-loading-card p {
+  margin: 0;
+  color: var(--lg-muted);
+  font-size: 12px;
+}
+
+.lifegrid-loading-status {
+  margin-top: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 10px;
+
+  border-radius: 999px;
+
+  background: var(--lg-green-soft);
+  color: var(--lg-green);
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.lifegrid-loading-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--lg-green);
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1120px) {
+  .lifegrid-citizen-layout {
+    grid-template-columns:
+      minmax(280px, 0.65fr)
+      minmax(560px, 1.35fr);
+  }
+
+  .lifegrid-type-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lifegrid-citizen-intro {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 920px) {
+  .lifegrid-citizen-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-citizen-intro {
+    min-height: auto;
+  }
+
+  .lifegrid-help-card {
+    margin-top: 25px;
+  }
+
+  .lifegrid-citizen-intro h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  .lifegrid-citizen-header,
+  .lifegrid-citizen-layout,
+  .lifegrid-citizen-services {
+    width: calc(100% - 24px);
+  }
+
+  .lifegrid-citizen-header {
+    margin-top: 10px;
+    padding: 11px 12px;
+  }
+
+  .lifegrid-header-actions {
+    gap: 5px;
+  }
+
+  .lifegrid-user-chip {
+    display: none;
+  }
+
+  .lifegrid-logout-button {
+    padding: 0 9px;
+  }
+
+  .lifegrid-citizen-layout {
+    margin-top: 12px;
+  }
+
+  .lifegrid-citizen-intro {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+
+  .lifegrid-citizen-intro h1 {
+    margin-top: 17px;
+    font-size: 44px;
+  }
+
+  .lifegrid-flow-steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .lifegrid-flow-arrow {
+    display: none;
+  }
+
+  .lifegrid-emergency-panel {
+    border-radius: 16px;
+  }
+
+  .lifegrid-form-header {
+    padding: 18px;
+  }
+
+  .lifegrid-form-title h2 {
+    font-size: 20px;
+  }
+
+  .lifegrid-required-note {
+    display: none;
+  }
+
+  .lifegrid-form-section {
+    padding: 20px 18px;
+  }
+
+  .lifegrid-type-grid,
+  .lifegrid-warning-grid,
+  .lifegrid-safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-people-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .lifegrid-location-row {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-form-footer {
+    padding: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-form-actions {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .lifegrid-submit-button {
+    min-width: 0;
+  }
+
+  .lifegrid-form-error,
+  .lifegrid-form-success {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .lifegrid-citizen-services {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .lifegrid-brand span {
+    display: none;
+  }
+
+  .lifegrid-citizen-intro h1 {
+    font-size: 39px;
+  }
+
+  .lifegrid-description-footer {
+    flex-wrap: wrap;
+  }
+
+  .lifegrid-character-count {
+    width: 100%;
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .lifegrid-form-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   REMOVE OLD CITIZEN LAYOUT CONSTRAINTS
+   This is the important part for the current screenshot.
+============================================================ */
+
+.lifegrid-citizen-content {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.lifegrid-citizen-hero,
+.lifegrid-emergency-card {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.lifegrid-citizen-page .lifegrid-emergency-card,
+.lifegrid-citizen-page .lifegrid-citizen-hero {
+  display: none !important;
+}
+
+/* Prevent older CSS from creating the huge empty left area. */
+.lifegrid-citizen-page {
+  display: block !important;
+}
+
+.lifegrid-citizen-page * {
+  box-sizing: border-box;
+}
+/* =========================================================
+   LIFEGRID CITIZEN CENTER — ORGANIZED EMERGENCY UI
+   Final override layer
+========================================================= */
+
+.lifegrid-citizen-page {
+  min-height: 100vh;
+  background: #f3f7f9 !important;
+  color: #12263a;
+}
+
+.lifegrid-citizen-header {
+  width: min(1500px, calc(100% - 48px));
+  margin: 22px auto 0;
+  min-height: 82px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: #ffffff !important;
+  border: 1px solid #dce6eb !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 28px rgba(20, 45, 62, 0.07) !important;
+}
+
+.lifegrid-citizen-content {
+  width: min(1500px, calc(100% - 48px)) !important;
+  margin: 24px auto 50px !important;
+}
+
+.lifegrid-citizen-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.78fr) minmax(600px, 1.45fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.lifegrid-support-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.lifegrid-welcome-block {
+  padding: 12px 8px 8px;
+}
+
+.lifegrid-welcome-block h1 {
+  margin: 13px 0 14px;
+  max-width: 520px;
+
+  font-size: clamp(38px, 4vw, 58px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.045em;
+  color: #10283f !important;
+}
+
+.lifegrid-welcome-block h1 span {
+  color: #078b84 !important;
+}
+
+.lifegrid-welcome-block p {
+  max-width: 560px;
+  margin: 0;
+  color: #63788b !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+}
+
+.lifegrid-eyebrow,
+.lifegrid-support-kicker,
+.lifegrid-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  color: #087f7a !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* =========================================================
+   GOVERNMENT SUPPORT PANEL
+========================================================= */
+
+.lifegrid-support-panel {
+  padding: 20px !important;
+  background: #ffffff !important;
+  border: 1px solid #dce6eb !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 32px rgba(20, 45, 62, 0.07) !important;
+}
+
+.lifegrid-support-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 16px;
+}
+
+.lifegrid-support-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  display: grid;
+  place-items: center;
+
+  background: #eaf7f6;
+  color: #078b84;
+  border-radius: 12px;
+}
+
+.lifegrid-support-header h2 {
+  margin: 3px 0 5px !important;
+  color: #10283f !important;
+  font-size: 22px !important;
+}
+
+.lifegrid-support-header p {
+  margin: 0;
+  color: #708392 !important;
+  font-size: 13px !important;
+  line-height: 1.5;
+}
+
+/* Critical 112 */
+
+.lifegrid-critical-call {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+
+  padding: 15px;
+  margin-bottom: 15px;
+
+  background: #fff7f5;
+  border: 1px solid #ffd8d2;
+  border-radius: 15px;
+}
+
+.lifegrid-critical-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+
+  background: #fff0ed;
+  color: #d43f3f;
+}
+
+.lifegrid-critical-copy {
+  min-width: 0;
+}
+
+.lifegrid-critical-copy > span {
+  display: block;
+  color: #c33c3c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.lifegrid-critical-copy strong {
+  display: block;
+  margin-top: 1px;
+  color: #162e43;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.lifegrid-critical-copy p {
+  margin: 2px 0 0;
+  color: #748594;
+  font-size: 11px;
+}
+
+.lifegrid-critical-actions {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.lifegrid-call-button,
+.lifegrid-official-button {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 7px 10px;
+  border-radius: 9px;
+
+  text-decoration: none !important;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.lifegrid-call-button {
+  color: #ffffff !important;
+  background: #d63f3f;
+}
+
+.lifegrid-official-button {
+  color: #34546a !important;
+  background: #ffffff;
+  border: 1px solid #d5e1e7;
+}
+
+/* Helpline grid */
+
+.lifegrid-helpline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.lifegrid-helpline-card {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 11px;
+
+  background: #f9fbfc;
+  border: 1px solid #e0e8ed;
+  border-radius: 12px;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.lifegrid-helpline-card:hover {
+  transform: translateY(-2px);
+  border-color: #a9d7d4;
+  box-shadow: 0 8px 20px rgba(20, 70, 80, 0.08);
+}
+
+.lifegrid-helpline-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+
+  display: grid;
+  place-items: center;
+
+  background: #eaf7f6;
+  color: #078b84;
+  border-radius: 9px;
+}
+
+.lifegrid-helpline-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.lifegrid-helpline-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.lifegrid-helpline-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #087f7a !important;
+  font-size: 15px;
+  font-weight: 900;
+  text-decoration: none !important;
+}
+
+.lifegrid-helpline-number:hover {
+  text-decoration: underline !important;
+}
+
+.lifegrid-helpline-content > strong {
+  display: block;
+  margin-top: 1px;
+  color: #1a3349;
+  font-size: 11px;
+}
+
+.lifegrid-helpline-content > p {
+  margin: 3px 0 0;
+  color: #788997;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.lifegrid-mini-call {
+  width: 27px;
+  height: 27px;
+
+  display: grid;
+  place-items: center;
+
+  color: #087f7a !important;
+  background: #ffffff;
+  border: 1px solid #d5e5e8;
+  border-radius: 7px;
+
+  text-decoration: none !important;
+}
+
+.lifegrid-directory-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: 13px;
+  padding-top: 12px;
+
+  border-top: 1px solid #e3eaee;
+
+  font-size: 10px;
+  color: #758897;
+}
+
+.lifegrid-directory-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #087f7a !important;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.lifegrid-show-more {
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px;
+
+  border: 1px solid #d7e3e8 !important;
+  background: #ffffff !important;
+  color: #36566a !important;
+
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.lifegrid-show-more:hover {
+  background: #f3faf9 !important;
+  border-color: #a9d7d4 !important;
+}
+
+.lifegrid-support-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+
+  margin-top: 12px;
+  padding: 10px 11px;
+
+  color: #637889;
+  background: #f4f8fa;
+  border-radius: 10px;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lifegrid-support-note svg {
+  flex: 0 0 auto;
+  color: #087f7a;
+}
+
+/* =========================================================
+   EMERGENCY FORM
+========================================================= */
+
+.lifegrid-emergency-card {
+  min-width: 0;
+  overflow: hidden;
+
+  padding: 0 !important;
+
+  background: #ffffff !important;
+  border: 1px solid #dce6eb !important;
+  border-radius: 20px !important;
+
+  box-shadow: 0 12px 36px rgba(20, 45, 62, 0.08) !important;
+}
+
+.lifegrid-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  padding: 25px 27px 21px;
+
+  border-bottom: 1px solid #e3eaee;
+}
+
+.lifegrid-danger-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+
+  display: grid;
+  place-items: center;
+
+  color: #d43f3f;
+  background: #fff1ef;
+  border: 1px solid #ffd4cf;
+  border-radius: 12px;
+}
+
+.lifegrid-card-heading h2 {
+  margin: 4px 0 5px !important;
+  color: #10283f !important;
+  font-size: 25px !important;
+  line-height: 1.15;
+}
+
+.lifegrid-card-heading p {
+  margin: 0 !important;
+  color: #708392 !important;
+  font-size: 13px !important;
+  line-height: 1.5;
+}
+
+.lifegrid-emergency-form {
+  padding: 0 !important;
+}
+
+.lifegrid-form-section {
+  padding: 25px 27px;
+  border-bottom: 1px solid #e4eaee;
+}
+
+.lifegrid-section-heading {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 19px;
+}
+
+.lifegrid-section-heading > span {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+
+  display: grid;
+  place-items: center;
+
+  background: #e8f7f5;
+  color: #087f7a;
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.lifegrid-section-heading strong {
+  display: block;
+  color: #142f46;
+  font-size: 16px;
+}
+
+.lifegrid-section-heading p {
+  margin: 4px 0 0;
+  color: #748797;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.lifegrid-field-label {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #16334b !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+.lifegrid-field-label span {
+  color: #d13f3f;
+  margin-left: 3px;
+}
+
+/* Emergency type */
+
+.lifegrid-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lifegrid-type-option {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 11px 13px;
+
+  background: #ffffff;
+  border: 1px solid #d7e3e9 !important;
+  border-radius: 12px;
+
+  color: #18334a;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.lifegrid-type-option:hover {
+  transform: translateY(-1px);
+  border-color: #8dc9c5 !important;
+}
+
+.lifegrid-type-option.is-selected {
+  background: #eaf8f6 !important;
+  border-color: #078f87 !important;
+  box-shadow: 0 0 0 2px rgba(8, 143, 135, 0.08);
+}
+
+.lifegrid-type-option > span {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #087f7a;
+  background: #f1f7f8;
+  border-radius: 9px;
+}
+
+.lifegrid-type-option strong {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* People */
+
+.lifegrid-people-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: 22px;
+}
+
+.lifegrid-people-row p {
+  margin: -3px 0 0;
+  color: #7a8b98;
+  font-size: 11px;
+}
+
+.lifegrid-stepper {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #d7e3e9;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.lifegrid-stepper button {
+  width: 42px;
+  height: 40px;
+
+  border: 0;
+  background: #f3f7f9;
+  color: #17324b;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.lifegrid-stepper button:hover:not(:disabled) {
+  background: #e8f4f3;
+}
+
+.lifegrid-stepper button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.lifegrid-stepper strong {
+  min-width: 64px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #142e45;
+  border-left: 1px solid #d7e3e9;
+  border-right: 1px solid #d7e3e9;
+  font-size: 14px;
+}
+
+/* Description */
+
+.lifegrid-emergency-form textarea,
+.lifegrid-emergency-form input {
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f9fbfc !important;
+  color: #16324a !important;
+
+  border: 1px solid #d6e2e8 !important;
+  border-radius: 11px !important;
+
+  font-size: 13px !important;
+}
+
+.lifegrid-emergency-form textarea {
+  min-height: 145px;
+  resize: vertical;
+  padding: 14px !important;
+  line-height: 1.55;
+}
+
+.lifegrid-emergency-form input {
+  min-height: 48px;
+  padding: 0 12px !important;
+}
+
+.lifegrid-emergency-form textarea::placeholder,
+.lifegrid-emergency-form input::placeholder {
+  color: #8b9daa !important;
+}
+
+.lifegrid-emergency-form textarea:focus,
+.lifegrid-emergency-form input:focus {
+  outline: none !important;
+  background: #ffffff !important;
+  border-color: #078f87 !important;
+  box-shadow: 0 0 0 3px rgba(8, 143, 135, 0.09) !important;
+}
+
+.lifegrid-language-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 9px;
+
+  color: #708493;
+  font-size: 10px;
+}
+
+.lifegrid-language-note svg {
+  color: #087f7a;
+}
+
+/* Location */
+
+.lifegrid-location-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 9px;
+}
+
+.lifegrid-input-with-icon {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 12px;
+
+  background: #f9fbfc;
+  border: 1px solid #d6e2e8;
+  border-radius: 11px;
+}
+
+.lifegrid-input-with-icon svg {
+  flex: 0 0 auto;
+  color: #087f7a;
+}
+
+.lifegrid-input-with-icon input {
+  min-height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.lifegrid-location-button {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 0 14px;
+
+  color: #087f7a !important;
+  background: #ffffff !important;
+
+  border: 1px solid #a9d3d0 !important;
+  border-radius: 11px !important;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.lifegrid-location-button:hover {
+  background: #edf8f7 !important;
+}
+
+.lifegrid-gps-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 8px;
+
+  color: #647b8b;
+  font-size: 10px;
+}
+
+.lifegrid-gps-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0b9b75;
+}
+
+/* Messages */
+
+.lifegrid-form-error,
+.lifegrid-form-success {
+  margin: 18px 27px 0;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  padding: 12px 13px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.lifegrid-form-error {
+  color: #a33131;
+  background: #fff2f1;
+  border: 1px solid #ffd5d1;
+}
+
+.lifegrid-form-success {
+  color: #116c53;
+  background: #edf9f5;
+  border: 1px solid #cbeee1;
+}
+
+/* Submit */
+
+.lifegrid-submit-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 19px 27px;
+
+  background: #fbfcfd;
+}
+
+.lifegrid-submit-area > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  max-width: 410px;
+
+  color: #738695;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lifegrid-submit-area > div svg {
+  flex: 0 0 auto;
+  color: #087f7a;
+}
+
+.lifegrid-emergency-button {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 0 21px;
+
+  color: #ffffff !important;
+  background: #087f7a !important;
+
+  border: 0 !important;
+  border-radius: 10px !important;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(8, 127, 122, 0.18);
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.lifegrid-emergency-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #066f6b !important;
+  box-shadow: 0 11px 24px rgba(8, 127, 122, 0.24);
+}
+
+.lifegrid-emergency-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.lifegrid-button-spin {
+  animation: lifegrid-spin 0.8s linear infinite;
+}
+
+@keyframes lifegrid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   REMOVE OLD LARGE LEFT REPORT DESIGN
+========================================================= */
+
+.lifegrid-citizen-hero {
+  display: none !important;
+}
+
+.lifegrid-citizen-services {
+  display: none !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+  .lifegrid-citizen-layout {
+    grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+  }
+
+  .lifegrid-critical-call {
+    grid-template-columns: auto 1fr;
+  }
+
+  .lifegrid-critical-actions {
+    grid-column: 1 / -1;
+  }
+
+  .lifegrid-critical-actions a {
+    flex: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .lifegrid-citizen-header,
+  .lifegrid-citizen-content {
+    width: min(100% - 28px, 760px) !important;
+  }
+
+  .lifegrid-citizen-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-welcome-block {
+    padding: 4px 2px;
+  }
+
+  .lifegrid-welcome-block h1 {
+    font-size: 42px !important;
+  }
+
+  .lifegrid-helpline-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .lifegrid-citizen-header {
+    width: calc(100% - 20px) !important;
+    margin-top: 10px;
+    padding: 12px 14px;
+    min-height: 68px;
+  }
+
+  .lifegrid-citizen-content {
+    width: calc(100% - 20px) !important;
+    margin-top: 14px !important;
+  }
+
+  .lifegrid-header-actions {
+    gap: 5px !important;
+  }
+
+  .lifegrid-user-chip {
+    display: none !important;
+  }
+
+  .lifegrid-logout-button {
+    padding: 9px 11px !important;
+  }
+
+  .lifegrid-welcome-block h1 {
+    font-size: 38px !important;
+  }
+
+  .lifegrid-support-panel,
+  .lifegrid-card-heading,
+  .lifegrid-form-section {
+    padding: 18px !important;
+  }
+
+  .lifegrid-helpline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-location-row {
+    grid-template-columns: 1fr;
+  }
+
+  .lifegrid-people-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .lifegrid-submit-area {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 17px 18px;
+  }
+
+  .lifegrid-emergency-button {
+    width: 100%;
+  }
+
+  .lifegrid-form-error,
+  .lifegrid-form-success {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
