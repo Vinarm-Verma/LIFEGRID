@@ -22,8 +22,9 @@ services:
       - key: LIFEGRID_SEED_DEMO
         value: "false"
 
-  - type: web
+    type: web
     name: lifegrid-web
+    runtime: static
     rootDir: web
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
